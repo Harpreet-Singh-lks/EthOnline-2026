@@ -1,0 +1,1 @@
+the start of the hackathon project and the main sponser are -> Privy, world and ENS 
