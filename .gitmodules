@@ -1,0 +1,6 @@
+[submodule "simple-subname-registrar/lib/forge-std"]
+	path = simple-subname-registrar/lib/forge-std
+	url = https://github.com/foundry-rs/forge-std
+[submodule "simple-subname-registrar/lib/contracts-v2"]
+	path = simple-subname-registrar/lib/contracts-v2
+	url = https://github.com/ensdomains/contracts-v2
