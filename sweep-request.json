@@ -1,0 +1,11 @@
+{
+  "method": "eth_sendTransaction",
+  "caip2": "eip155:11155111",
+  "chain_type": "ethereum",
+  "params": {
+    "transaction": {
+      "to": "0xcBFD80F74375c54E545AF34788Ff465F96F66F05",
+      "data": "0xa9059cbb000000000000000000000000d3bdf899798dcc3e1c1b47f2e3c0b009b52255480000000000000000000000000000000000000000000000000000000000d59f80"
+    }
+  }
+}

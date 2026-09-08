@@ -1,0 +1,58 @@
+{
+    "version": "1.0",
+    "name": "Procurement agent policy",
+    "chain_type": "ethereum",
+    "rules": [
+        {
+            "name": "Procurement agent policy",
+            "method": "eth_sendTransaction",
+            "conditions": [
+                {
+                    "field_source": "ethereum_transaction",
+                    "field": "to",
+                    "operator": "eq",
+                    "value": "0xcBFD80F74375c54E545AF34788Ff465F96F66F05"
+                },
+                {
+                    "field_source": "ethereum_calldata",
+                    "field": "transfer.recipient",
+                    "abi": [{
+                        "inputs": [
+                            {"internalType": "address", "name": "recipient", "type": "address"},
+                            {"internalType": "uint256", "name": "amount", "type": "uint256"}
+                        ],
+                        "name": "transfer",
+                        "outputs": [{"internalType": "bool", "name": "", "type": "bool"}],
+                        "stateMutability": "nonpayable",
+                        "type": "function"
+                    }],
+                    "operator": "eq",
+                    "value": "0x4d520A22c47DfF92C56DAf6E819e466F4fE866E1"
+                },
+                {
+                    "field_source": "ethereum_calldata",
+                    "field": "transfer.amount",
+                    "abi": [{
+                        "inputs": [
+                            {"internalType": "address", "name": "recipient", "type": "address"},
+                            {"internalType": "uint256", "name": "amount", "type": "uint256"}
+                        ],
+                        "name": "transfer",
+                        "outputs": [{"internalType": "bool", "name": "", "type": "bool"}],
+                        "stateMutability": "nonpayable",
+                        "type": "function"
+                    }],
+                    "operator": "lte",
+                    "value": "0x4C4B40"
+                },
+                {
+                    "field_source": "system",
+                    "field": "current_unix_timestamp",
+                    "operator": "lt",
+                    "value": "1788985534"
+                }
+            ],
+            "action": "ALLOW"
+        }
+    ]
+}

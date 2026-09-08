@@ -1,0 +1,36 @@
+{
+    "version": "1.0",
+    "name": "Recovery sweep policy",
+    "chain_type": "ethereum",
+    "rules": [
+        {
+            "name": "Allow sweep to controller",
+            "method": "eth_sendTransaction",
+            "conditions": [
+                {
+                    "field_source": "ethereum_transaction",
+                    "field": "to",
+                    "operator": "eq",
+                    "value": "0xcBFD80F74375c54E545AF34788Ff465F96F66F05"
+                },
+                {
+                    "field_source": "ethereum_calldata",
+                    "field": "transfer.recipient",
+                    "abi": [{
+                        "type": "function",
+                        "name": "transfer",
+                        "inputs": [
+                            {"name": "recipient", "type": "address", "internalType": "address"},
+                            {"name": "amount", "type": "uint256", "internalType": "uint256"}
+                        ],
+                        "outputs": [{"name": "", "type": "bool", "internalType": "bool"}],
+                        "stateMutability": "nonpayable"
+                    }],
+                    "operator": "eq",
+                    "value": "0xD3Bdf899798dcC3E1c1b47f2E3C0b009B5225548"
+                }
+            ],
+            "action": "ALLOW"
+        }
+    ]
+}
